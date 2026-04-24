@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#19`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -209,9 +209,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/models/supply.ts](/Users/chustz/firestore-test-app/src/models/supply.ts)
 - Why this should NOT affect dbt:
   - Field order in a TypeScript interface has no effect on Firestore document structure or on the staging SELECT lists in `dbt_snowflake`.
-- PR: `TBD`
+- PR: `#19`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated TypeScript interface property reordering as a true negative.`
 
 #### 17. Add or expand JSDoc and inline comments
 - [ ] Add JSDoc blocks to public service functions and inline comments clarifying business rules; do not change any code behavior.
