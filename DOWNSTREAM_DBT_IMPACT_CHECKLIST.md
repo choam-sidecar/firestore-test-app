@@ -98,7 +98,7 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `sku` from `raw_items` and maps it to `product_id`.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 8. Start writing one item row per quantity instead of aggregated quantity
