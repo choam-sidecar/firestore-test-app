@@ -48,7 +48,7 @@ export async function seedJaffleShopData(): Promise<{ success: true }> {
 
   await createOrder({
     id: "1001",
-    customer: "1",
+    customer_id: "1",
     store_id: "1",
     channel: "app",
     notes: "Breakfast rush order",
@@ -60,7 +60,7 @@ export async function seedJaffleShopData(): Promise<{ success: true }> {
 
   await createOrder({
     id: "1002",
-    customer: "2",
+    customer_id: "2",
     store_id: "2",
     channel: "delivery",
     notes: null,

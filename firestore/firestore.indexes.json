@@ -4,7 +4,7 @@
       "collectionGroup": "raw_orders",
       "queryScope": "COLLECTION",
       "fields": [
-        { "fieldPath": "customer", "order": "ASCENDING" },
+        { "fieldPath": "customer_id", "order": "ASCENDING" },
         { "fieldPath": "ordered_at", "order": "DESCENDING" }
       ]
     },
