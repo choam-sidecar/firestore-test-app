@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#11`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -108,9 +108,9 @@ Template for updates:
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
 - Why this should affect dbt:
   - This changes the grain of `raw_items`, which should affect downstream item and order aggregations.
-- PR: `TBD`
+- PR: `#11`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity grain change affecting stg_order_items, order_items, orders, ORDERS_mixed_case, customers, and revenue metrics.`
 
 ### 9. Rename store opening timestamp
 - [ ] Change `raw_stores.opened_at` to `raw_stores.opened_on`.
