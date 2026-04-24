@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#21`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -233,9 +233,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/models/index.ts](/Users/chustz/firestore-test-app/src/models/index.ts)
 - Why this should NOT affect dbt:
   - File layout refactor with no change to validation rules, payload shape, or Firestore writes.
-- PR: `TBD`
+- PR: `#21`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the schema-file refactor as a true negative because validation behavior stayed identical.`
 
 #### 19. Rename an Express route path without changing payloads
 - [ ] Rename e.g. `POST /seed/jaffle-shop` to `POST /admin/seed/jaffle-shop`, or version routes under `/v1/`, leaving request/response bodies and all Firestore writes identical.
