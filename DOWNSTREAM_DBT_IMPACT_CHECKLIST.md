@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#13`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -132,9 +132,9 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `cost` and rolls it into downstream `order_cost`.
-- PR: `TBD`
+- PR: `#13`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_supplies, order_items, ORDERS_mixed_case, and related failure-propagation models.`
 
 ### 11. Remove referential validation for orders
 - [ ] Stop validating that customer, store, and product references exist before writing orders and items.
