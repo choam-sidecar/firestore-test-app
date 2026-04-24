@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#22`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -243,9 +243,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/index.ts](/Users/chustz/firestore-test-app/src/index.ts)
 - Why this should NOT affect dbt:
   - HTTP route naming is a transport concern. Firestore documents, their fields, and their values are unchanged.
-- PR: `TBD`
+- PR: `#22`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the transport-only route rename as a true negative.`
 
 ### B. Data impact outside the tracked dbt surface
 
