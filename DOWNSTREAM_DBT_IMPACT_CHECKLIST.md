@@ -260,7 +260,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - `customer_stats` is a derived collection maintained by the app itself, not a raw staging source for `dbt_snowflake`. Adding fields to it changes app-side data without touching any `raw_*` contract.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 21. Write a new `app_state` document on seed runs
