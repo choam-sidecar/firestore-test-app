@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase-admin/app";
 import * as functions from "firebase-functions";
 import express from "express";
+import { logApiRequest } from "./middleware/validate-request";
 import {
   createCustomer,
   getCustomer,
@@ -29,6 +30,7 @@ initializeApp();
 
 const app = express();
 app.use(express.json());
+app.use(logApiRequest);
 
 app.get("/health", (_req, res) => {
   res.json({ ok: true, service: "firestore-jaffle-upstream-mock" });

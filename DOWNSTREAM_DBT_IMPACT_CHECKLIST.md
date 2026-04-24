@@ -286,7 +286,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Observed result: `TBD`
 
 #### 23. Add request-level metadata to a new `api_request_log` collection
-- [ ] Add middleware that logs request metadata (path, method, status, latency) into a new `api_request_log` collection. No `raw_*` writes change.
+- [x] Add middleware that logs request metadata (path, method, status, latency) into a new `api_request_log` collection. No `raw_*` writes change.
 - App files:
   - [src/middleware/validate-request.ts](/Users/chustz/firestore-test-app/src/middleware/validate-request.ts)
   - [src/index.ts](/Users/chustz/firestore-test-app/src/index.ts)
@@ -294,8 +294,8 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - Telemetry collection is unrelated to any jaffle-shop raw source; dbt does not read it.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 #### 24. Add a new `product_recommendations` derived collection
 - [ ] Compute a lightweight "frequently-bought-together" score per SKU and write it into a new `product_recommendations` collection. Do not alter `raw_products` or `raw_items`.
