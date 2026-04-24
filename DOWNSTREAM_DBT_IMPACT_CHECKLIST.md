@@ -31,10 +31,10 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging currently selects `customer as customer_id` from `raw_orders`, so renaming the upstream field should break or require downstream dbt changes.
-- PR: `TBD`
+- PR: `#1`
 - Merged: `TBD`
 - Status: `in_progress`
-- Observed result: `TBD`
+- Observed result: `PR opened; awaiting contract-agent evaluation`
 
 ### 2. Rename the order-to-store foreign key
 - [ ] Change `raw_orders.store_id` to `raw_orders.location_id`.
