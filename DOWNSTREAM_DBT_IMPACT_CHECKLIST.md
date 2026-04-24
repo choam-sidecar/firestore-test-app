@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#9`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -85,9 +85,9 @@ Template for updates:
   - [src/mock-data/jaffle-shop.ts](/Users/chustz/firestore-test-app/src/mock-data/jaffle-shop.ts)
 - Why this should affect dbt:
   - Downstream dbt derives `is_food_item` and `is_drink_item` using the existing raw `type` values.
-- PR: `TBD`
+- PR: `#9`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting stg_products, order_items, ORDERS_mixed_case, and semantic food or drink revenue outputs.`
 
 ### 7. Rename item SKU field
 - [ ] Change `raw_items.sku` to `raw_items.product_sku`.
