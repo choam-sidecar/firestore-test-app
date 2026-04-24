@@ -33,7 +33,7 @@ service cloud.firestore {
     match /raw_supplies/{supplyId} {
       allow read: if isAuthenticated();
       allow create, update: if isWriter()
-        && request.resource.data.keys().hasAll(['id', 'sku', 'name', 'cost', 'perishable', 'updated_at']);
+        && request.resource.data.keys().hasAll(['id', 'sku', 'name', 'unit_cost', 'perishable', 'updated_at']);
       allow delete: if false;
     }
 
