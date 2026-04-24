@@ -14,6 +14,13 @@ interface OrderWithItems {
   items: RawItem[];
 }
 
+function truncateToMinute(timestamp: Timestamp): Timestamp {
+  const minuteMillis = 60_000;
+  return Timestamp.fromMillis(
+    Math.floor(timestamp.toMillis() / minuteMillis) * minuteMillis
+  );
+}
+
 export async function createOrder(data: unknown): Promise<OrderWithItems> {
   const validated = createOrderSchema.parse(data);
   const customer = await getCustomer(validated.customer_id);
@@ -27,6 +34,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
   }
 
   const now = Timestamp.now();
+  const orderedAt = truncateToMinute(now);
   const orderId = validated.id ?? collections.rawOrders.doc().id;
   const items: RawItem[] = [];
   let subtotal = 0;
@@ -63,7 +71,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
     subtotal,
     tax_paid,
     order_total,
-    ordered_at: now,
+    ordered_at: orderedAt,
     status: "placed",
     channel: validated.channel,
     notes: validated.notes,

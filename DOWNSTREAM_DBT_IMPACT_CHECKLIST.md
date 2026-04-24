@@ -147,15 +147,15 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 12. Change ordered timestamp granularity or source
-- [ ] Populate `raw_orders.ordered_at` differently, such as truncating at write time or using a client-provided local timestamp string.
+- [x] Populate `raw_orders.ordered_at` differently, such as truncating at write time or using a client-provided local timestamp string.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
 - Why this should affect dbt:
   - Downstream models and metrics group and rank orders by `ordered_at`, so semantic changes here should affect reporting logic.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 13. Change seeded product types without changing app code
 - [ ] Update seeded/mock product records so at least one known product changes from `jaffle` to `side` or `beverage`.
