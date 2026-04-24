@@ -90,7 +90,7 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 7. Rename item SKU field
-- [ ] Change `raw_items.sku` to `raw_items.product_sku`.
+- [x] Change `raw_items.sku` to `raw_items.product_sku`.
 - App files:
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
@@ -98,8 +98,8 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `sku` from `raw_items` and maps it to `product_id`.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 8. Start writing one item row per quantity instead of aggregated quantity
 - [ ] Change order creation so each purchased unit becomes its own `raw_items` document and remove or repurpose the `quantity` field.

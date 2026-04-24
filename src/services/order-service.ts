@@ -45,7 +45,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
     items.push({
       id: `${orderId}_${index + 1}`,
       order_id: orderId,
-      sku: input.sku,
+      product_sku: input.sku,
       quantity: input.quantity,
       unit_price: product.price,
       line_total,
