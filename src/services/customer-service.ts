@@ -2,6 +2,9 @@ import { Timestamp } from "firebase-admin/firestore";
 import { RawCustomer, createCustomerSchema } from "../models";
 import { collections } from "../utils/collection-refs";
 
+/**
+ * Creates a raw customer document with server-authored lifecycle timestamps.
+ */
 export async function createCustomer(data: unknown): Promise<RawCustomer> {
   const validated = createCustomerSchema.parse(data);
   const now = Timestamp.now();
@@ -21,6 +24,9 @@ export async function listCustomers(): Promise<RawCustomer[]> {
   return snapshot.docs.map((doc) => doc.data() as RawCustomer);
 }
 
+/**
+ * Fetches a single customer by the raw upstream identifier.
+ */
 export async function getCustomer(customerId: string): Promise<RawCustomer | null> {
   const snapshot = await collections.rawCustomers.doc(customerId).get();
   if (!snapshot.exists) {

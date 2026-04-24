@@ -214,7 +214,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Observed result: `TBD`
 
 #### 17. Add or expand JSDoc and inline comments
-- [ ] Add JSDoc blocks to public service functions and inline comments clarifying business rules; do not change any code behavior.
+- [x] Add JSDoc blocks to public service functions and inline comments clarifying business rules; do not change any code behavior.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/services/customer-service.ts](/Users/chustz/firestore-test-app/src/services/customer-service.ts)
@@ -222,8 +222,8 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - Comment-only changes cannot alter the shape or semantics of any upstream data.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 #### 18. Move Zod schemas into a dedicated `src/schemas/` folder
 - [ ] Extract `createCustomerSchema`, `createOrderSchema`, `updateOrderStatusSchema`, etc. from the model files into a new `src/schemas/` folder and re-export. Keep validation rules byte-identical.

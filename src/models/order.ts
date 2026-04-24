@@ -28,11 +28,13 @@ export interface RawItem {
   updated_at: Timestamp;
 }
 
+// Each inbound order line is expanded against the product catalog at write time.
 export const orderLineInputSchema = z.object({
   sku: z.string().min(1),
   quantity: z.number().int().positive(),
 });
 
+// The API accepts business inputs only; derived money fields are computed server-side.
 export const createOrderSchema = z.object({
   id: z.string().min(1).optional(),
   customer_id: z.string().min(1),
@@ -42,6 +44,7 @@ export const createOrderSchema = z.object({
   items: z.array(orderLineInputSchema).min(1),
 });
 
+// Status updates are intentionally narrow to keep the mock workflow deterministic.
 export const updateOrderStatusSchema = z.object({
   status: z.enum(["placed", "preparing", "fulfilled", "cancelled"]),
 });
