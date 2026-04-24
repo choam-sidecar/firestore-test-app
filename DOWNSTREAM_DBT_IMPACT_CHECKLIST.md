@@ -113,7 +113,7 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 9. Rename store opening timestamp
-- [ ] Change `raw_stores.opened_at` to `raw_stores.opened_on`.
+- [x] Change `raw_stores.opened_at` to `raw_stores.opened_on`.
 - App files:
   - [src/models/store.ts](/Users/chustz/firestore-test-app/src/models/store.ts)
   - [src/services/catalog-service.ts](/Users/chustz/firestore-test-app/src/services/catalog-service.ts)
@@ -121,8 +121,8 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` uses `opened_at` for `stg_locations` and has a unit test around date truncation.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 10. Rename supply cost field
 - [ ] Change `raw_supplies.cost` to `raw_supplies.unit_cost`.

@@ -19,7 +19,7 @@ service cloud.firestore {
     match /raw_stores/{storeId} {
       allow read: if isAuthenticated();
       allow create, update: if isWriter()
-        && request.resource.data.keys().hasAll(['id', 'name', 'tax_rate', 'opened_at', 'is_active', 'updated_at']);
+        && request.resource.data.keys().hasAll(['id', 'name', 'tax_rate', 'opened_on', 'is_active', 'updated_at']);
       allow delete: if false;
     }
 

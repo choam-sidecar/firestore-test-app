@@ -13,7 +13,7 @@ export async function createStore(data: unknown): Promise<RawStore> {
   const validated = createStoreSchema.parse(data);
   const store: RawStore = {
     ...validated,
-    opened_at: Timestamp.now(),
+    opened_on: Timestamp.now(),
     updated_at: Timestamp.now(),
   };
 
