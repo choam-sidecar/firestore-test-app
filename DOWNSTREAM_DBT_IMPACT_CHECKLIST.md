@@ -142,7 +142,7 @@ Template for updates:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
 - Why this should affect dbt:
   - This can create orphaned records that should surface as downstream relationship-test failures or broken joins.
-- PR: `TBD`
+- PR: `#14`
 - Status: `in_progress`
 - Observed result: `awaiting contract-agent evaluation`
 
