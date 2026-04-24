@@ -5,7 +5,7 @@ export interface RawStore {
   id: string;
   name: string;
   tax_rate: number;
-  opened_at: Timestamp;
+  opened_on: Timestamp;
   region: string;
   is_active: boolean;
   updated_at: Timestamp;
