@@ -210,7 +210,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - Field order in a TypeScript interface has no effect on Firestore document structure or on the staging SELECT lists in `dbt_snowflake`.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 17. Add or expand JSDoc and inline comments
