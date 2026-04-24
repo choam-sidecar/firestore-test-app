@@ -125,16 +125,16 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 10. Rename supply cost field
-- [ ] Change `raw_supplies.cost` to `raw_supplies.unit_cost`.
+- [x] Change `raw_supplies.cost` to `raw_supplies.unit_cost`.
 - App files:
   - [src/models/supply.ts](/Users/chustz/firestore-test-app/src/models/supply.ts)
   - [src/services/catalog-service.ts](/Users/chustz/firestore-test-app/src/services/catalog-service.ts)
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `cost` and rolls it into downstream `order_cost`.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#13`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_supplies, order_items, ORDERS_mixed_case, and related failure-propagation models.`
 
 ### 11. Remove referential validation for orders
 - [ ] Stop validating that customer, store, and product references exist before writing orders and items.
