@@ -46,14 +46,14 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 3. Change order totals to include a non-dbt fee
-- [ ] Update order creation logic so `order_total` includes an extra service fee that is not represented in `subtotal` or `tax_paid`.
+- [x] Update order creation logic so `order_total` includes an extra service fee that is not represented in `subtotal` or `tax_paid`.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
 - Why this should affect dbt:
   - The downstream `orders` mart expects `order_total = subtotal + tax_paid`; changing the upstream meaning should cause a downstream semantic mismatch.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 4. Change tax calculation semantics
 - [ ] Replace store-based tax calculation with channel-based or flat-rate tax calculation.

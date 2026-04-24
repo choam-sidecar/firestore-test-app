@@ -54,7 +54,8 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
   }
 
   const tax_paid = Math.round(subtotal * store.tax_rate);
-  const order_total = subtotal + tax_paid;
+  const service_fee = validated.channel === "delivery" ? 199 : 99;
+  const order_total = subtotal + tax_paid + service_fee;
 
   const order: RawOrder = {
     id: orderId,
