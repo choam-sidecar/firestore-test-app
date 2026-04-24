@@ -244,7 +244,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - HTTP route naming is a transport concern. Firestore documents, their fields, and their values are unchanged.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### B. Data impact outside the tracked dbt surface
