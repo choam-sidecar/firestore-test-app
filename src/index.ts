@@ -34,7 +34,7 @@ app.get("/health", (_req, res) => {
   res.json({ ok: true, service: "firestore-jaffle-upstream-mock" });
 });
 
-app.post("/seed/jaffle-shop", async (_req, res) => {
+app.post("/admin/seed/jaffle-shop", async (_req, res) => {
   try {
     const result = await seedJaffleShopData();
     res.status(201).json(result);

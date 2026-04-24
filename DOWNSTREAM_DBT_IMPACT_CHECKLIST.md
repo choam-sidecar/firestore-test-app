@@ -238,14 +238,14 @@ The raw Firestore document shape, field names, field types, and written values a
 - Observed result: `TBD`
 
 #### 19. Rename an Express route path without changing payloads
-- [ ] Rename e.g. `POST /seed/jaffle-shop` to `POST /admin/seed/jaffle-shop`, or version routes under `/v1/`, leaving request/response bodies and all Firestore writes identical.
+- [x] Rename e.g. `POST /seed/jaffle-shop` to `POST /admin/seed/jaffle-shop`, or version routes under `/v1/`, leaving request/response bodies and all Firestore writes identical.
 - App files:
   - [src/index.ts](/Users/chustz/firestore-test-app/src/index.ts)
 - Why this should NOT affect dbt:
   - HTTP route naming is a transport concern. Firestore documents, their fields, and their values are unchanged.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#22`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the transport-only route rename as a true negative.`
 
 ### B. Data impact outside the tracked dbt surface
 
