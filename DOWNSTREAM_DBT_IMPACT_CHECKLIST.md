@@ -102,15 +102,15 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 8. Start writing one item row per quantity instead of aggregated quantity
-- [ ] Change order creation so each purchased unit becomes its own `raw_items` document and remove or repurpose the `quantity` field.
+- [x] Change order creation so each purchased unit becomes its own `raw_items` document and remove or repurpose the `quantity` field.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
 - Why this should affect dbt:
   - This changes the grain of `raw_items`, which should affect downstream item and order aggregations.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#11`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity grain change affecting stg_order_items, order_items, orders, ORDERS_mixed_case, customers, and revenue metrics.`
 
 ### 9. Rename store opening timestamp
 - [ ] Change `raw_stores.opened_at` to `raw_stores.opened_on`.
