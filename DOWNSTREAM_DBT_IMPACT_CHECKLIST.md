@@ -282,7 +282,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - `order_audit_log` is a brand-new collection with no corresponding dbt source, staging model, or test.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 23. Add request-level metadata to a new `api_request_log` collection
