@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#12`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -120,9 +120,9 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` uses `opened_at` for `stg_locations` and has a unit test around date truncation.
-- PR: `TBD`
+- PR: `#12`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_locations and LoCaTiOnS_MiXeD_cAsE.`
 
 ### 10. Rename supply cost field
 - [ ] Change `raw_supplies.cost` to `raw_supplies.unit_cost`.
