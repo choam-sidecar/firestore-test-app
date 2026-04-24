@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#23`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -259,9 +259,9 @@ The app writes new data, or writes more data, but only to collections/fields tha
   - [src/utils/firestore-converter.ts](/Users/chustz/firestore-test-app/src/utils/firestore-converter.ts)
 - Why this should NOT affect dbt:
   - `customer_stats` is a derived collection maintained by the app itself, not a raw staging source for `dbt_snowflake`. Adding fields to it changes app-side data without touching any `raw_*` contract.
-- PR: `TBD`
+- PR: `#23`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the derived customer_stats-only change as a true negative.`
 
 #### 21. Write a new `app_state` document on seed runs
 - [ ] On each call to `seedJaffleShopData`, write a document into the already-declared `app_state` collection capturing the last seed timestamp, counts, and build metadata.
