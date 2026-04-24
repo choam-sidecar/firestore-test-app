@@ -3,11 +3,11 @@ import { z } from "zod";
 
 export interface RawStore {
   id: string;
+  is_active: boolean;
   name: string;
-  tax_rate: number;
   opened_at: Timestamp;
   region: string;
-  is_active: boolean;
+  tax_rate: number;
   updated_at: Timestamp;
 }
 

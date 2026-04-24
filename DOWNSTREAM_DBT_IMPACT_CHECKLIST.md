@@ -201,7 +201,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Observed result: `TBD`
 
 #### 16. Reorder fields inside TypeScript interfaces
-- [ ] Reorder properties in `RawOrder`, `RawItem`, `RawProduct`, etc. without adding, removing, or renaming any field.
+- [x] Reorder properties in `RawOrder`, `RawItem`, `RawProduct`, etc. without adding, removing, or renaming any field.
 - App files:
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
   - [src/models/product.ts](/Users/chustz/firestore-test-app/src/models/product.ts)
@@ -209,9 +209,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/models/supply.ts](/Users/chustz/firestore-test-app/src/models/supply.ts)
 - Why this should NOT affect dbt:
   - Field order in a TypeScript interface has no effect on Firestore document structure or on the staging SELECT lists in `dbt_snowflake`.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#19`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated TypeScript interface property reordering as a true negative.`
 
 #### 17. Add or expand JSDoc and inline comments
 - [ ] Add JSDoc blocks to public service functions and inline comments clarifying business rules; do not change any code behavior.
