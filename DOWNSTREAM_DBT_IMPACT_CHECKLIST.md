@@ -271,7 +271,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - `app_state` is an internal operational collection and is not referenced by any `dbt_snowflake` staging or mart model.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 22. Add a new `order_audit_log` collection for order mutations
