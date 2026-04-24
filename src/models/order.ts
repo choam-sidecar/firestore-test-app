@@ -7,7 +7,7 @@ export type OrderChannel = "pos" | "app" | "delivery";
 export interface RawOrder {
   id: string;
   customer_id: string;
-  store_id: string;
+  location_id: string;
   subtotal: number;
   tax_paid: number;
   order_total: number;
@@ -36,7 +36,7 @@ export const orderLineInputSchema = z.object({
 export const createOrderSchema = z.object({
   id: z.string().min(1).optional(),
   customer_id: z.string().min(1),
-  store_id: z.string().min(1),
+  location_id: z.string().min(1),
   channel: z.enum(["pos", "app", "delivery"]).default("app"),
   notes: z.string().max(1000).nullable().default(null),
   items: z.array(orderLineInputSchema).min(1),

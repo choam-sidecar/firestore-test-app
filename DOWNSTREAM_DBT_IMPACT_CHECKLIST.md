@@ -34,7 +34,7 @@ Template for updates:
 - Observed result: `2026-04-24: sidecar-data-contract-agent-dev commented with a high-confidence, high-severity structural contract change alert. It identified stg_orders, orders, customers, ORDERS_mixed_case, customer_order_metrics, order_metrics, and order_items as impacted or indirectly impacted assets.`
 
 ### 2. Rename the order-to-store foreign key
-- [ ] Change `raw_orders.store_id` to `raw_orders.location_id`.
+- [x] Change `raw_orders.store_id` to `raw_orders.location_id`.
 - App files:
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
@@ -42,8 +42,8 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 3. Change order totals to include a non-dbt fee
 - [ ] Update order creation logic so `order_total` includes an extra service fee that is not represented in `subtotal` or `tax_paid`.
