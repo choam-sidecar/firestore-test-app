@@ -67,16 +67,16 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 5. Rename product price field
-- [ ] Change `raw_products.price` to `raw_products.unit_price`.
+- [x] Change `raw_products.price` to `raw_products.unit_price`.
 - App files:
   - [src/models/product.ts](/Users/chustz/firestore-test-app/src/models/product.ts)
   - [src/services/catalog-service.ts](/Users/chustz/firestore-test-app/src/services/catalog-service.ts)
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `price` from `raw_products`.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#8`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_products, order_items, ORDERS_mixed_case, and related downstream models.`
 
 ### 6. Change product taxonomy values
 - [ ] Replace one or more product `type` enum values such as `jaffle` or `beverage` with new values like `food` and `drink`.

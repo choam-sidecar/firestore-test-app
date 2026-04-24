@@ -39,7 +39,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
       throw new Error(`Active product ${input.sku} not found`);
     }
 
-    const line_total = product.price * input.quantity;
+    const line_total = product.unit_price * input.quantity;
     subtotal += line_total;
 
     items.push({
@@ -47,7 +47,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
       order_id: orderId,
       sku: input.sku,
       quantity: input.quantity,
-      unit_price: product.price,
+      unit_price: product.unit_price,
       line_total,
       updated_at: now,
     });
