@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#6`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -51,9 +51,9 @@ Template for updates:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
 - Why this should affect dbt:
   - The downstream `orders` mart expects `order_total = subtotal + tax_paid`; changing the upstream meaning should cause a downstream semantic mismatch.
-- PR: `TBD`
+- PR: `#6`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting orders, ORDERS_mixed_case, customers, order_total-related metrics, and downstream saved queries.`
 
 ### 4. Change tax calculation semantics
 - [ ] Replace store-based tax calculation with channel-based or flat-rate tax calculation.
