@@ -275,15 +275,15 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Observed result: `TBD`
 
 #### 22. Add a new `order_audit_log` collection for order mutations
-- [ ] When an order is created or has its status updated, write an append-only entry to a new `order_audit_log` collection (`{order_id, previous_status, new_status, actor, changed_at}`). Do not change `raw_orders` or `raw_items`.
+- [x] When an order is created or has its status updated, write an append-only entry to a new `order_audit_log` collection (`{order_id, previous_status, new_status, actor, changed_at}`). Do not change `raw_orders` or `raw_items`.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - `order_audit_log` is a brand-new collection with no corresponding dbt source, staging model, or test.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#25`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the new order_audit_log collection as a true negative.`
 
 #### 23. Add request-level metadata to a new `api_request_log` collection
 - [ ] Add middleware that logs request metadata (path, method, status, latency) into a new `api_request_log` collection. No `raw_*` writes change.
