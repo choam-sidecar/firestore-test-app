@@ -52,7 +52,7 @@ Template for updates:
 - Why this should affect dbt:
   - The downstream `orders` mart expects `order_total = subtotal + tax_paid`; changing the upstream meaning should cause a downstream semantic mismatch.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 4. Change tax calculation semantics
