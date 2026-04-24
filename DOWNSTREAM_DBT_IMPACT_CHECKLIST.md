@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#27`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -305,6 +305,6 @@ The app writes new data, or writes more data, but only to collections/fields tha
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - The new collection is derived and owned by the app; dbt staging models only read the raw `product`/`item` sources, which are unchanged.
-- PR: `TBD`
+- PR: `#27`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the derived product_recommendations collection as a true negative.`
