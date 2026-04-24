@@ -154,7 +154,7 @@ Template for updates:
 - Why this should affect dbt:
   - Downstream models and metrics group and rank orders by `ordered_at`, so semantic changes here should affect reporting logic.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 13. Change seeded product types without changing app code
