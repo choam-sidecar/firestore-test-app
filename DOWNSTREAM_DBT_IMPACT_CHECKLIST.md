@@ -294,7 +294,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - Telemetry collection is unrelated to any jaffle-shop raw source; dbt does not read it.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 24. Add a new `product_recommendations` derived collection
