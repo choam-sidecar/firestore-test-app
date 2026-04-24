@@ -26,7 +26,7 @@ service cloud.firestore {
     match /raw_products/{sku} {
       allow read: if isAuthenticated();
       allow create, update: if isWriter()
-        && request.resource.data.keys().hasAll(['sku', 'name', 'type', 'price', 'is_active', 'updated_at']);
+        && request.resource.data.keys().hasAll(['sku', 'name', 'type', 'unit_price', 'is_active', 'updated_at']);
       allow delete: if false;
     }
 

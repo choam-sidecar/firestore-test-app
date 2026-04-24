@@ -8,7 +8,7 @@ export interface RawProduct {
   name: string;
   type: ProductType;
   description: string;
-  price: number;
+  unit_price: number;
   is_active: boolean;
   updated_at: Timestamp;
 }
@@ -18,6 +18,6 @@ export const createProductSchema = z.object({
   name: z.string().min(1).max(160),
   type: z.enum(["jaffle", "beverage", "side"]),
   description: z.string().min(1).max(1000),
-  price: z.number().int().positive(),
+  unit_price: z.number().int().positive(),
   is_active: z.boolean().default(true),
 });
