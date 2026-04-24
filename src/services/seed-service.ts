@@ -42,6 +42,17 @@ export async function seedJaffleShopData(): Promise<{ success: true }> {
     last_seeded_at: Timestamp.now(),
     source_repo: "choam-sidecar/dbt_snowflake",
     source_domain: "jaffle_shop raw ecom entities",
+    seed_counts: {
+      customers: seededCustomers.length,
+      stores: seededStores.length,
+      products: seededProducts.length,
+      supplies: seededSupplies.length,
+      orders: 2,
+    },
+    build_metadata: {
+      app_version: "test-case-21",
+      seeded_by: "contract-agent-checklist",
+    },
   });
 
   await batch.commit();

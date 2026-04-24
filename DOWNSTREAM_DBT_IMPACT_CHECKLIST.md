@@ -264,15 +264,15 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Observed result: `TBD`
 
 #### 21. Write a new `app_state` document on seed runs
-- [ ] On each call to `seedJaffleShopData`, write a document into the already-declared `app_state` collection capturing the last seed timestamp, counts, and build metadata.
+- [x] On each call to `seedJaffleShopData`, write a document into the already-declared `app_state` collection capturing the last seed timestamp, counts, and build metadata.
 - App files:
   - [src/services/seed-service.ts](/Users/chustz/firestore-test-app/src/services/seed-service.ts)
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - `app_state` is an internal operational collection and is not referenced by any `dbt_snowflake` staging or mart model.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#24`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the internal app_state-only change as a true negative.`
 
 #### 22. Add a new `order_audit_log` collection for order mutations
 - [ ] When an order is created or has its status updated, write an append-only entry to a new `order_audit_log` collection (`{order_id, previous_status, new_status, actor, changed_at}`). Do not change `raw_orders` or `raw_items`.
