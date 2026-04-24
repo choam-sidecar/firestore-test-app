@@ -64,7 +64,7 @@ export const seededProducts: RawProduct[] = [
   {
     sku: "JAFFLE_CLASSIC",
     name: "Classic Jaffle",
-    type: "jaffle",
+    type: "food",
     description: "Cheese-forward toasted jaffle.",
     price: 900,
     is_active: true,
@@ -73,7 +73,7 @@ export const seededProducts: RawProduct[] = [
   {
     sku: "JAFFLE_DELUXE",
     name: "Deluxe Jaffle",
-    type: "jaffle",
+    type: "food",
     description: "Deluxe jaffle with tomato and herbs.",
     price: 1200,
     is_active: true,
@@ -82,7 +82,7 @@ export const seededProducts: RawProduct[] = [
   {
     sku: "BEV_COFFEE",
     name: "Filter Coffee",
-    type: "beverage",
+    type: "drink",
     description: "Freshly brewed house coffee.",
     price: 350,
     is_active: true,

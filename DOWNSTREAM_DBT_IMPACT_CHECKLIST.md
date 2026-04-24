@@ -79,15 +79,15 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 6. Change product taxonomy values
-- [ ] Replace one or more product `type` enum values such as `jaffle` or `beverage` with new values like `food` and `drink`.
+- [x] Replace one or more product `type` enum values such as `jaffle` or `beverage` with new values like `food` and `drink`.
 - App files:
   - [src/models/product.ts](/Users/chustz/firestore-test-app/src/models/product.ts)
   - [src/mock-data/jaffle-shop.ts](/Users/chustz/firestore-test-app/src/mock-data/jaffle-shop.ts)
 - Why this should affect dbt:
   - Downstream dbt derives `is_food_item` and `is_drink_item` using the existing raw `type` values.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#9`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting stg_products, order_items, ORDERS_mixed_case, and semantic food or drink revenue outputs.`
 
 ### 7. Rename item SKU field
 - [ ] Change `raw_items.sku` to `raw_items.product_sku`.
