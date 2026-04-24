@@ -43,7 +43,7 @@ service cloud.firestore {
         && request.resource.data.keys().hasAll([
           'id',
           'customer_id',
-          'store_id',
+          'location_id',
           'subtotal',
           'tax_paid',
           'order_total',

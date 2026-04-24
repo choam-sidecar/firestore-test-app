@@ -21,9 +21,9 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
     throw new Error(`Active customer ${validated.customer_id} not found`);
   }
 
-  const store = await getStore(validated.store_id);
+  const store = await getStore(validated.location_id);
   if (!store || !store.is_active) {
-    throw new Error(`Active store ${validated.store_id} not found`);
+    throw new Error(`Active store ${validated.location_id} not found`);
   }
 
   const now = Timestamp.now();
@@ -59,7 +59,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
   const order: RawOrder = {
     id: orderId,
     customer_id: validated.customer_id,
-    store_id: validated.store_id,
+    location_id: validated.location_id,
     subtotal,
     tax_paid,
     order_total,
