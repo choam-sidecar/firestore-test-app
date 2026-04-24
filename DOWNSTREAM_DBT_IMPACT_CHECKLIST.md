@@ -42,7 +42,7 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
 - PR: `#5`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 3. Change order totals to include a non-dbt fee
