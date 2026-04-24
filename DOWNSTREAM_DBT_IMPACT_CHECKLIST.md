@@ -252,7 +252,7 @@ The raw Firestore document shape, field names, field types, and written values a
 The app writes new data, or writes more data, but only to collections/fields that are **not** part of the `jaffle_shop` dbt staging sources (`raw_customers`, `raw_stores`, `raw_products`, `raw_supplies`, `raw_orders`, `raw_items`).
 
 #### 20. Extend `customer_stats` with new computed fields
-- [ ] Add fields like `avg_order_value` or `last_channel` to the `customer_stats` documents written by the `onOrderWritten` trigger.
+- [x] Add fields like `avg_order_value` or `last_channel` to the `customer_stats` documents written by the `onOrderWritten` trigger.
 - App files:
   - [src/models/customer-stats.ts](/Users/chustz/firestore-test-app/src/models/customer-stats.ts)
   - [src/functions/on-order-written.ts](/Users/chustz/firestore-test-app/src/functions/on-order-written.ts)
@@ -260,8 +260,8 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - `customer_stats` is a derived collection maintained by the app itself, not a raw staging source for `dbt_snowflake`. Adding fields to it changes app-side data without touching any `raw_*` contract.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 #### 21. Write a new `app_state` document on seed runs
 - [ ] On each call to `seedJaffleShopData`, write a document into the already-declared `app_state` collection capturing the last seed timestamp, counts, and build metadata.

@@ -24,9 +24,17 @@ export const onOrderWritten = functions.firestore
 
     const stats: CustomerStats = {
       customer_id: order.customer_id,
+      avg_order_value:
+        sortedOrders.length > 0
+          ? Math.round(
+              sortedOrders.reduce((sum, candidate) => sum + candidate.order_total, 0) /
+                sortedOrders.length
+            )
+          : 0,
       count_lifetime_orders: sortedOrders.length,
       first_ordered_at: sortedOrders[0]?.ordered_at ?? null,
       last_ordered_at: sortedOrders.at(-1)?.ordered_at ?? null,
+      last_channel: sortedOrders.at(-1)?.channel ?? null,
       lifetime_spend_pretax: sortedOrders.reduce((sum, candidate) => sum + candidate.subtotal, 0),
       lifetime_tax_paid: sortedOrders.reduce((sum, candidate) => sum + candidate.tax_paid, 0),
       lifetime_spend: sortedOrders.reduce((sum, candidate) => sum + candidate.order_total, 0),
