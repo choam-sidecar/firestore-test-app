@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#17`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -174,9 +174,9 @@ Template for updates:
   - [src/services/seed-service.ts](/Users/chustz/firestore-test-app/src/services/seed-service.ts)
 - Why this should affect dbt:
   - The current repo already has a likely contract gap around item quantity vs downstream order subtotal logic; changing seeded quantities is a clean way to exercise that path.
-- PR: `TBD`
+- PR: `#17`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a medium-confidence, medium-severity data-only business-logic change affecting stg_order_items, order_items, orders, customers, and downstream metrics or tests.`
 
 ## Negative Cases
 
