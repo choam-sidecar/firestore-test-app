@@ -43,7 +43,7 @@ Template for updates:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
 - PR: `#5`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_orders, orders, ORDERS_mixed_case, stg_locations, LoCaTiOnS_MiXeD_cAsE, and customers.`
 
 ### 3. Change order totals to include a non-dbt fee
 - [ ] Update order creation logic so `order_total` includes an extra service fee that is not represented in `subtotal` or `tax_paid`.
