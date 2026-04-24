@@ -53,8 +53,8 @@ export async function seedJaffleShopData(): Promise<{ success: true }> {
     channel: "app",
     notes: "Breakfast rush order",
     items: [
-      { sku: "JAFFLE_CLASSIC", quantity: 2 },
-      { sku: "BEV_COFFEE", quantity: 2 },
+      { sku: "JAFFLE_CLASSIC", quantity: 4 },
+      { sku: "BEV_COFFEE", quantity: 3 },
     ],
   });
 
@@ -65,8 +65,9 @@ export async function seedJaffleShopData(): Promise<{ success: true }> {
     channel: "delivery",
     notes: null,
     items: [
-      { sku: "JAFFLE_DELUXE", quantity: 1 },
+      { sku: "JAFFLE_DELUXE", quantity: 2 },
       { sku: "SIDE_HASH", quantity: 1 },
+      { sku: "SIDE_HASH", quantity: 2 },
     ],
   });
 
