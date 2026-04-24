@@ -56,15 +56,15 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 4. Change tax calculation semantics
-- [ ] Replace store-based tax calculation with channel-based or flat-rate tax calculation.
+- [x] Replace store-based tax calculation with channel-based or flat-rate tax calculation.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/models/store.ts](/Users/chustz/firestore-test-app/src/models/store.ts)
 - Why this should affect dbt:
   - Downstream marts aggregate `tax_paid` and `order_total`, so a meaning change should affect business metrics even if the schema is unchanged.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ### 5. Rename product price field
 - [ ] Change `raw_products.price` to `raw_products.unit_price`.

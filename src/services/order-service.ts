@@ -53,7 +53,8 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
     });
   }
 
-  const tax_paid = Math.round(subtotal * store.tax_rate);
+  const channel_tax_rate = validated.channel === "delivery" ? 0.11 : 0.07;
+  const tax_paid = Math.round(subtotal * channel_tax_rate);
   const order_total = subtotal + tax_paid;
 
   const order: RawOrder = {
