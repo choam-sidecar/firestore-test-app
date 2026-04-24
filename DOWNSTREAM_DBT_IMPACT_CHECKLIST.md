@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#20`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -221,9 +221,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
 - Why this should NOT affect dbt:
   - Comment-only changes cannot alter the shape or semantics of any upstream data.
-- PR: `TBD`
+- PR: `#20`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the comment-only change as a true negative.`
 
 #### 18. Move Zod schemas into a dedicated `src/schemas/` folder
 - [ ] Extract `createCustomerSchema`, `createOrderSchema`, `updateOrderStatusSchema`, etc. from the model files into a new `src/schemas/` folder and re-export. Keep validation rules byte-identical.
