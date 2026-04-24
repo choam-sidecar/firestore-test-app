@@ -10,9 +10,9 @@ import {
 import { collections } from "../utils/collection-refs";
 
 export async function createStore(data: unknown): Promise<RawStore> {
-  const validated = createStoreSchema.parse(data);
+  const parsedStore = createStoreSchema.parse(data);
   const store: RawStore = {
-    ...validated,
+    ...parsedStore,
     opened_at: Timestamp.now(),
     updated_at: Timestamp.now(),
   };
@@ -36,9 +36,9 @@ export async function getStore(storeId: string): Promise<RawStore | null> {
 }
 
 export async function createProduct(data: unknown): Promise<RawProduct> {
-  const validated = createProductSchema.parse(data);
+  const parsedProduct = createProductSchema.parse(data);
   const product: RawProduct = {
-    ...validated,
+    ...parsedProduct,
     updated_at: Timestamp.now(),
   };
 
@@ -61,9 +61,9 @@ export async function getProduct(sku: string): Promise<RawProduct | null> {
 }
 
 export async function createSupply(data: unknown): Promise<RawSupply> {
-  const validated = createSupplySchema.parse(data);
+  const parsedSupply = createSupplySchema.parse(data);
   const supply: RawSupply = {
-    ...validated,
+    ...parsedSupply,
     updated_at: Timestamp.now(),
   };
 

@@ -189,7 +189,7 @@ For each item, the expected `Observed result` is something like `not flagged (tr
 The raw Firestore document shape, field names, field types, and written values are all unchanged. Only source code structure, comments, or transport-layer naming change.
 
 #### 15. Rename internal TypeScript helpers and variables
-- [ ] Rename private/local helpers and variables inside order and catalog services (e.g. rename a local `sortedOrders` variable, split a function into `computeLineTotal` / `computeOrderTotal` with identical behavior).
+- [x] Rename private/local helpers and variables inside order and catalog services (e.g. rename a local `sortedOrders` variable, split a function into `computeLineTotal` / `computeOrderTotal` with identical behavior).
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
   - [src/services/catalog-service.ts](/Users/chustz/firestore-test-app/src/services/catalog-service.ts)
@@ -197,8 +197,8 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - No Firestore collection, field name, field type, or written value changes. Internal identifiers are not part of the data contract.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 #### 16. Reorder fields inside TypeScript interfaces
 - [ ] Reorder properties in `RawOrder`, `RawItem`, `RawProduct`, etc. without adding, removing, or renaming any field.

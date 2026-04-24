@@ -15,38 +15,38 @@ interface OrderWithItems {
 }
 
 export async function createOrder(data: unknown): Promise<OrderWithItems> {
-  const validated = createOrderSchema.parse(data);
-  const customer = await getCustomer(validated.customer_id);
+  const parsedOrder = createOrderSchema.parse(data);
+  const customer = await getCustomer(parsedOrder.customer_id);
   if (!customer || !customer.is_active) {
-    throw new Error(`Active customer ${validated.customer_id} not found`);
+    throw new Error(`Active customer ${parsedOrder.customer_id} not found`);
   }
 
-  const store = await getStore(validated.store_id);
+  const store = await getStore(parsedOrder.store_id);
   if (!store || !store.is_active) {
-    throw new Error(`Active store ${validated.store_id} not found`);
+    throw new Error(`Active store ${parsedOrder.store_id} not found`);
   }
 
   const now = Timestamp.now();
-  const orderId = validated.id ?? collections.rawOrders.doc().id;
+  const orderId = parsedOrder.id ?? collections.rawOrders.doc().id;
   const items: RawItem[] = [];
   let subtotal = 0;
 
-  for (let index = 0; index < validated.items.length; index += 1) {
-    const input = validated.items[index];
-    const product = await getProduct(input.sku);
+  for (let index = 0; index < parsedOrder.items.length; index += 1) {
+    const orderLine = parsedOrder.items[index];
+    const product = await getProduct(orderLine.sku);
 
     if (!product || !product.is_active) {
-      throw new Error(`Active product ${input.sku} not found`);
+      throw new Error(`Active product ${orderLine.sku} not found`);
     }
 
-    const line_total = product.price * input.quantity;
+    const line_total = product.price * orderLine.quantity;
     subtotal += line_total;
 
     items.push({
       id: `${orderId}_${index + 1}`,
       order_id: orderId,
-      sku: input.sku,
-      quantity: input.quantity,
+      sku: orderLine.sku,
+      quantity: orderLine.quantity,
       unit_price: product.price,
       line_total,
       updated_at: now,
@@ -58,15 +58,15 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
 
   const order: RawOrder = {
     id: orderId,
-    customer_id: validated.customer_id,
-    store_id: validated.store_id,
+    customer_id: parsedOrder.customer_id,
+    store_id: parsedOrder.store_id,
     subtotal,
     tax_paid,
     order_total,
     ordered_at: now,
     status: "placed",
-    channel: validated.channel,
-    notes: validated.notes,
+    channel: parsedOrder.channel,
+    notes: parsedOrder.notes,
     updated_at: now,
   };
 
