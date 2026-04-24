@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#16`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -164,9 +164,9 @@ Template for updates:
   - [src/services/seed-service.ts](/Users/chustz/firestore-test-app/src/services/seed-service.ts)
 - Why this should affect dbt:
   - This is a data-only change that should still alter downstream food/drink classification and test behavior.
-- PR: `TBD`
+- PR: `#16`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a medium-confidence, medium-severity business-logic change affecting products, order_items, orders, and customers via seeded product-type reclassification.`
 
 ### 14. Change seeded multi-quantity behavior
 - [ ] Update seed data so orders include larger quantities or multiple repeated SKUs per order.
