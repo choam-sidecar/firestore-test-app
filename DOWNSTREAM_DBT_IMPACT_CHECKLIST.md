@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#25`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -281,9 +281,9 @@ The app writes new data, or writes more data, but only to collections/fields tha
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - `order_audit_log` is a brand-new collection with no corresponding dbt source, staging model, or test.
-- PR: `TBD`
+- PR: `#25`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the new order_audit_log collection as a true negative.`
 
 #### 23. Add request-level metadata to a new `api_request_log` collection
 - [ ] Add middleware that logs request metadata (path, method, status, latency) into a new `api_request_log` collection. No `raw_*` writes change.
