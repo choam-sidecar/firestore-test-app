@@ -234,7 +234,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - File layout refactor with no change to validation rules, payload shape, or Firestore writes.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 19. Rename an Express route path without changing payloads
