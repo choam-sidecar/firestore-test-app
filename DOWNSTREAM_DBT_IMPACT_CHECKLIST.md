@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#26`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -293,9 +293,9 @@ The app writes new data, or writes more data, but only to collections/fields tha
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - Telemetry collection is unrelated to any jaffle-shop raw source; dbt does not read it.
-- PR: `TBD`
+- PR: `#26`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the telemetry-only api_request_log collection as a true negative.`
 
 #### 24. Add a new `product_recommendations` derived collection
 - [ ] Compute a lightweight "frequently-bought-together" score per SKU and write it into a new `product_recommendations` collection. Do not alter `raw_products` or `raw_items`.
