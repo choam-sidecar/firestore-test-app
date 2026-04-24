@@ -197,7 +197,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - No Firestore collection, field name, field type, or written value changes. Internal identifiers are not part of the data contract.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 16. Reorder fields inside TypeScript interfaces
