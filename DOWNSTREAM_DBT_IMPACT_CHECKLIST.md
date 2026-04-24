@@ -133,7 +133,7 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `cost` and rolls it into downstream `order_cost`.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 11. Remove referential validation for orders
