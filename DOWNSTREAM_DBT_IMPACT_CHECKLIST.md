@@ -298,7 +298,7 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Observed result: `TBD`
 
 #### 24. Add a new `product_recommendations` derived collection
-- [ ] Compute a lightweight "frequently-bought-together" score per SKU and write it into a new `product_recommendations` collection. Do not alter `raw_products` or `raw_items`.
+- [x] Compute a lightweight "frequently-bought-together" score per SKU and write it into a new `product_recommendations` collection. Do not alter `raw_products` or `raw_items`.
 - App files:
   - [src/services/catalog-service.ts](/Users/chustz/firestore-test-app/src/services/catalog-service.ts)
   - [src/functions/on-order-written.ts](/Users/chustz/firestore-test-app/src/functions/on-order-written.ts)
@@ -306,5 +306,5 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - The new collection is derived and owned by the app; dbt staging models only read the raw `product`/`item` sources, which are unchanged.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`

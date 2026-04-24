@@ -1,6 +1,7 @@
 import * as functions from "firebase-functions";
 import { Timestamp } from "firebase-admin/firestore";
 import { CustomerStats, RawOrder } from "../models";
+import { updateProductRecommendations } from "../services/catalog-service";
 import { collections } from "../utils/collection-refs";
 
 export const onOrderWritten = functions.firestore
@@ -35,4 +36,5 @@ export const onOrderWritten = functions.firestore
     };
 
     await collections.customerStats.doc(order.customer_id).set(stats);
+    await updateProductRecommendations(orderId);
   });
