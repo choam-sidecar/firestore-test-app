@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#18`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -196,9 +196,9 @@ The raw Firestore document shape, field names, field types, and written values a
   - [src/functions/on-order-written.ts](/Users/chustz/firestore-test-app/src/functions/on-order-written.ts)
 - Why this should NOT affect dbt:
   - No Firestore collection, field name, field type, or written value changes. Internal identifiers are not part of the data contract.
-- PR: `TBD`
+- PR: `#18`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues for this refactor-only change and correctly treated it as a true negative.`
 
 #### 16. Reorder fields inside TypeScript interfaces
 - [ ] Reorder properties in `RawOrder`, `RawItem`, `RawProduct`, etc. without adding, removing, or renaming any field.
