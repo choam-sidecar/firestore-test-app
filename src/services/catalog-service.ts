@@ -1,5 +1,6 @@
 import { Timestamp } from "firebase-admin/firestore";
 import {
+  RawItem,
   RawProduct,
   RawStore,
   RawSupply,
@@ -7,7 +8,7 @@ import {
   createStoreSchema,
   createSupplySchema,
 } from "../models";
-import { collections } from "../utils/collection-refs";
+import { collections, rawItemsByOrder } from "../utils/collection-refs";
 
 export async function createStore(data: unknown): Promise<RawStore> {
   const validated = createStoreSchema.parse(data);
@@ -74,4 +75,26 @@ export async function createSupply(data: unknown): Promise<RawSupply> {
 export async function listSupplies(): Promise<RawSupply[]> {
   const snapshot = await collections.rawSupplies.orderBy("id", "asc").get();
   return snapshot.docs.map((doc) => doc.data() as RawSupply);
+}
+
+export async function updateProductRecommendations(orderId: string): Promise<void> {
+  const itemsSnapshot = await rawItemsByOrder(orderId).get();
+  const items = itemsSnapshot.docs.map((doc) => doc.data() as RawItem);
+  const uniqueSkus = [...new Set(items.map((item) => item.sku))].sort();
+
+  const writes = uniqueSkus.flatMap((baseSku) =>
+    uniqueSkus
+      .filter((relatedSku) => relatedSku !== baseSku)
+      .map((relatedSku) =>
+        collections.productRecommendations.doc(`${baseSku}_${relatedSku}`).set({
+          sku: baseSku,
+          related_sku: relatedSku,
+          score: 1,
+          source_order_id: orderId,
+          updated_at: Timestamp.now(),
+        })
+      )
+  );
+
+  await Promise.all(writes);
 }

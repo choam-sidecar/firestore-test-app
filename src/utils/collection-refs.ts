@@ -24,6 +24,7 @@ export const collections = {
   rawItems: db.collection("raw_items").withConverter(rawItemConverter),
   customerStats: db.collection("customer_stats").withConverter(customerStatsConverter),
   appState: db.collection("app_state"),
+  productRecommendations: db.collection("product_recommendations"),
 } as const;
 
 export function rawItemsByOrder(orderId: string) {
