@@ -121,7 +121,7 @@ Template for updates:
 - Why this should affect dbt:
   - `dbt_snowflake` uses `opened_at` for `stg_locations` and has a unit test around date truncation.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 10. Rename supply cost field
