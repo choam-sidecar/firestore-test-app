@@ -169,14 +169,14 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 14. Change seeded multi-quantity behavior
-- [ ] Update seed data so orders include larger quantities or multiple repeated SKUs per order.
+- [x] Update seed data so orders include larger quantities or multiple repeated SKUs per order.
 - App files:
   - [src/services/seed-service.ts](/Users/chustz/firestore-test-app/src/services/seed-service.ts)
 - Why this should affect dbt:
   - The current repo already has a likely contract gap around item quantity vs downstream order subtotal logic; changing seeded quantities is a clean way to exercise that path.
 - PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- Status: `in_progress`
+- Observed result: `awaiting contract-agent evaluation`
 
 ## Negative Cases
 
