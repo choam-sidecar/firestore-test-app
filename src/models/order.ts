@@ -6,25 +6,25 @@ export type OrderChannel = "pos" | "app" | "delivery";
 
 export interface RawOrder {
   id: string;
+  channel: OrderChannel;
   customer_id: string;
-  store_id: string;
-  subtotal: number;
-  tax_paid: number;
+  notes: string | null;
   order_total: number;
   ordered_at: Timestamp;
   status: OrderStatus;
-  channel: OrderChannel;
-  notes: string | null;
+  store_id: string;
+  subtotal: number;
+  tax_paid: number;
   updated_at: Timestamp;
 }
 
 export interface RawItem {
   id: string;
-  order_id: string;
-  sku: string;
-  quantity: number;
-  unit_price: number;
   line_total: number;
+  order_id: string;
+  quantity: number;
+  sku: string;
+  unit_price: number;
   updated_at: Timestamp;
 }
 

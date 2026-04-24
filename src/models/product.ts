@@ -4,12 +4,12 @@ import { z } from "zod";
 export type ProductType = "jaffle" | "beverage" | "side";
 
 export interface RawProduct {
-  sku: string;
-  name: string;
-  type: ProductType;
   description: string;
-  price: number;
   is_active: boolean;
+  name: string;
+  price: number;
+  sku: string;
+  type: ProductType;
   updated_at: Timestamp;
 }
 

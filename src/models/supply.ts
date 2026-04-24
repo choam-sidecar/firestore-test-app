@@ -2,14 +2,14 @@ import { Timestamp } from "firebase-admin/firestore";
 import { z } from "zod";
 
 export interface RawSupply {
-  id: string;
-  sku: string;
-  name: string;
   cost: number;
+  id: string;
+  name: string;
   perishable: boolean;
-  vendor: string;
   quantity_on_hand: number;
+  sku: string;
   updated_at: Timestamp;
+  vendor: string;
 }
 
 export const createSupplySchema = z.object({
