@@ -109,7 +109,7 @@ Template for updates:
 - Why this should affect dbt:
   - This changes the grain of `raw_items`, which should affect downstream item and order aggregations.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 9. Rename store opening timestamp
