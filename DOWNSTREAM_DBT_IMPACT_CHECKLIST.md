@@ -306,5 +306,5 @@ The app writes new data, or writes more data, but only to collections/fields tha
 - Why this should NOT affect dbt:
   - The new collection is derived and owned by the app; dbt staging models only read the raw `product`/`item` sources, which are unchanged.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
