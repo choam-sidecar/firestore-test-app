@@ -137,14 +137,14 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 11. Remove referential validation for orders
-- [ ] Stop validating that customer, store, and product references exist before writing orders and items.
+- [x] Stop validating that customer, store, and product references exist before writing orders and items.
 - App files:
   - [src/services/order-service.ts](/Users/chustz/firestore-test-app/src/services/order-service.ts)
 - Why this should affect dbt:
   - This can create orphaned records that should surface as downstream relationship-test failures or broken joins.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#14`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting stg_orders, stg_order_items, orders, order_items, customers, relationship tests, and downstream metrics.`
 
 ### 12. Change ordered timestamp granularity or source
 - [ ] Populate `raw_orders.ordered_at` differently, such as truncating at write time or using a client-provided local timestamp string.

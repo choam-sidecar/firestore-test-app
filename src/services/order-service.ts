@@ -6,7 +6,6 @@ import {
   updateOrderStatusSchema,
 } from "../models";
 import { collections, rawItemsByOrder } from "../utils/collection-refs";
-import { getCustomer } from "./customer-service";
 import { getProduct, getStore } from "./catalog-service";
 
 interface OrderWithItems {
@@ -16,15 +15,8 @@ interface OrderWithItems {
 
 export async function createOrder(data: unknown): Promise<OrderWithItems> {
   const validated = createOrderSchema.parse(data);
-  const customer = await getCustomer(validated.customer_id);
-  if (!customer || !customer.is_active) {
-    throw new Error(`Active customer ${validated.customer_id} not found`);
-  }
-
   const store = await getStore(validated.store_id);
-  if (!store || !store.is_active) {
-    throw new Error(`Active store ${validated.store_id} not found`);
-  }
+  const effectiveTaxRate = store?.tax_rate ?? 0;
 
   const now = Timestamp.now();
   const orderId = validated.id ?? collections.rawOrders.doc().id;
@@ -35,11 +27,8 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
     const input = validated.items[index];
     const product = await getProduct(input.sku);
 
-    if (!product || !product.is_active) {
-      throw new Error(`Active product ${input.sku} not found`);
-    }
-
-    const line_total = product.price * input.quantity;
+    const unitPrice = product?.price ?? 0;
+    const line_total = unitPrice * input.quantity;
     subtotal += line_total;
 
     items.push({
@@ -47,13 +36,13 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
       order_id: orderId,
       sku: input.sku,
       quantity: input.quantity,
-      unit_price: product.price,
+      unit_price: unitPrice,
       line_total,
       updated_at: now,
     });
   }
 
-  const tax_paid = Math.round(subtotal * store.tax_rate);
+  const tax_paid = Math.round(subtotal * effectiveTaxRate);
   const order_total = subtotal + tax_paid;
 
   const order: RawOrder = {
