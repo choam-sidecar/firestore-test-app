@@ -143,7 +143,7 @@ Template for updates:
 - Why this should affect dbt:
   - This can create orphaned records that should surface as downstream relationship-test failures or broken joins.
 - PR: `#14`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 12. Change ordered timestamp granularity or source
