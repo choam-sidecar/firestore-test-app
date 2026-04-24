@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#15`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -153,9 +153,9 @@ Template for updates:
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
 - Why this should affect dbt:
   - Downstream models and metrics group and rank orders by `ordered_at`, so semantic changes here should affect reporting logic.
-- PR: `TBD`
+- PR: `#15`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting stg_orders, orders, order_items, customers, and ordering-dependent metrics and saved queries.`
 
 ### 13. Change seeded product types without changing app code
 - [ ] Update seeded/mock product records so at least one known product changes from `jaffle` to `side` or `beverage`.
