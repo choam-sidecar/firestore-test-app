@@ -226,16 +226,16 @@ The raw Firestore document shape, field names, field types, and written values a
 - Observed result: `TBD`
 
 #### 18. Move Zod schemas into a dedicated `src/schemas/` folder
-- [ ] Extract `createCustomerSchema`, `createOrderSchema`, `updateOrderStatusSchema`, etc. from the model files into a new `src/schemas/` folder and re-export. Keep validation rules byte-identical.
+- [x] Extract `createCustomerSchema`, `createOrderSchema`, `updateOrderStatusSchema`, etc. from the model files into a new `src/schemas/` folder and re-export. Keep validation rules byte-identical.
 - App files:
   - [src/models/customer.ts](/Users/chustz/firestore-test-app/src/models/customer.ts)
   - [src/models/order.ts](/Users/chustz/firestore-test-app/src/models/order.ts)
   - [src/models/index.ts](/Users/chustz/firestore-test-app/src/models/index.ts)
 - Why this should NOT affect dbt:
   - File layout refactor with no change to validation rules, payload shape, or Firestore writes.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#21`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the schema-file refactor as a true negative because validation behavior stayed identical.`
 
 #### 19. Rename an Express route path without changing payloads
 - [ ] Rename e.g. `POST /seed/jaffle-shop` to `POST /admin/seed/jaffle-shop`, or version routes under `/v1/`, leaving request/response bodies and all Firestore writes identical.
