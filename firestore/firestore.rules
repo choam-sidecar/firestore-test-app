@@ -61,7 +61,7 @@ service cloud.firestore {
         && request.resource.data.keys().hasAll([
           'id',
           'order_id',
-          'sku',
+          'product_sku',
           'quantity',
           'unit_price',
           'line_total',

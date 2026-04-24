@@ -21,7 +21,7 @@ export interface RawOrder {
 export interface RawItem {
   id: string;
   order_id: string;
-  sku: string;
+  product_sku: string;
   quantity: number;
   unit_price: number;
   line_total: number;
