@@ -1,23 +1,31 @@
 import { getFirestore } from "firebase-admin/firestore";
-import { userConverter, productConverter, orderConverter } from "./firestore-converter";
+import {
+  customerStatsConverter,
+  rawCustomerConverter,
+  rawItemConverter,
+  rawOrderConverter,
+  rawProductConverter,
+  rawStoreConverter,
+  rawSupplyConverter,
+} from "./firestore-converter";
 
-const db = getFirestore();
+export const db = getFirestore();
 
 /**
  * Typed collection references for consistent access across the app.
  */
 export const collections = {
-  users: db.collection("users").withConverter(userConverter),
-  products: db.collection("products").withConverter(productConverter),
-  orders: db.collection("orders").withConverter(orderConverter),
-  userStats: db.collection("user_stats"),
-  wishlists: db.collection("wishlists"),
-  notifications: db.collection("notifications"),
+  db,
+  rawCustomers: db.collection("raw_customers").withConverter(rawCustomerConverter),
+  rawStores: db.collection("raw_stores").withConverter(rawStoreConverter),
+  rawProducts: db.collection("raw_products").withConverter(rawProductConverter),
+  rawSupplies: db.collection("raw_supplies").withConverter(rawSupplyConverter),
+  rawOrders: db.collection("raw_orders").withConverter(rawOrderConverter),
+  rawItems: db.collection("raw_items").withConverter(rawItemConverter),
+  customerStats: db.collection("customer_stats").withConverter(customerStatsConverter),
+  appState: db.collection("app_state"),
 } as const;
 
-/**
- * Subcollection references.
- */
-export function productReviews(productId: string) {
-  return db.collection("products").doc(productId).collection("reviews");
+export function rawItemsByOrder(orderId: string) {
+  return collections.rawItems.where("order_id", "==", orderId).orderBy("id", "asc");
 }

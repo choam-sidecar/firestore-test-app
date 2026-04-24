@@ -2,9 +2,15 @@ import {
   FirestoreDataConverter,
   QueryDocumentSnapshot,
 } from "firebase-admin/firestore";
-import { UserProfile } from "../models/user";
-import { Product } from "../models/product";
-import { Order } from "../models/order";
+import {
+  CustomerStats,
+  RawCustomer,
+  RawItem,
+  RawOrder,
+  RawProduct,
+  RawStore,
+  RawSupply,
+} from "../models";
 
 /**
  * Generic Firestore data converter that provides type safety
@@ -21,6 +27,10 @@ function createConverter<T>(): FirestoreDataConverter<T> {
   };
 }
 
-export const userConverter = createConverter<UserProfile>();
-export const productConverter = createConverter<Product>();
-export const orderConverter = createConverter<Order>();
+export const rawCustomerConverter = createConverter<RawCustomer>();
+export const rawStoreConverter = createConverter<RawStore>();
+export const rawProductConverter = createConverter<RawProduct>();
+export const rawSupplyConverter = createConverter<RawSupply>();
+export const rawOrderConverter = createConverter<RawOrder>();
+export const rawItemConverter = createConverter<RawItem>();
+export const customerStatsConverter = createConverter<CustomerStats>();
