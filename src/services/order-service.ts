@@ -75,6 +75,13 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
   for (const item of items) {
     batch.set(collections.rawItems.doc(item.id), item);
   }
+  batch.set(collections.orderAuditLog.doc(`${order.id}_created`), {
+    order_id: order.id,
+    previous_status: null,
+    new_status: order.status,
+    actor: "system",
+    changed_at: now,
+  });
   await batch.commit();
 
   return { order, items };
@@ -103,8 +110,24 @@ export async function updateOrderStatus(
   data: unknown
 ): Promise<void> {
   const validated = updateOrderStatusSchema.parse(data);
-  await collections.rawOrders.doc(orderId).update({
+  const orderSnapshot = await collections.rawOrders.doc(orderId).get();
+  if (!orderSnapshot.exists) {
+    throw new Error(`Order ${orderId} not found`);
+  }
+
+  const previousOrder = orderSnapshot.data() as RawOrder;
+  const changedAt = Timestamp.now();
+  const batch = collections.db.batch();
+  batch.update(collections.rawOrders.doc(orderId), {
     status: validated.status,
-    updated_at: Timestamp.now(),
+    updated_at: changedAt,
   });
+  batch.set(collections.orderAuditLog.doc(`${orderId}_${changedAt.toMillis()}`), {
+    order_id: orderId,
+    previous_status: previousOrder.status,
+    new_status: validated.status,
+    actor: "system",
+    changed_at: changedAt,
+  });
+  await batch.commit();
 }
