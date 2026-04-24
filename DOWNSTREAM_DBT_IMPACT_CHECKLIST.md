@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#10`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -97,9 +97,9 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `sku` from `raw_items` and maps it to `product_id`.
-- PR: `TBD`
+- PR: `#10`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity structural contract change affecting stg_order_items, order_items, ORDERS_mixed_case, orders, customers, and order_item metrics.`
 
 ### 8. Start writing one item row per quantity instead of aggregated quantity
 - [ ] Change order creation so each purchased unit becomes its own `raw_items` document and remove or repurpose the `quantity` field.
