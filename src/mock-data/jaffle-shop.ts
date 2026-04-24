@@ -64,7 +64,7 @@ export const seededProducts: RawProduct[] = [
   {
     sku: "JAFFLE_CLASSIC",
     name: "Classic Jaffle",
-    type: "jaffle",
+    type: "side",
     description: "Cheese-forward toasted jaffle.",
     price: 900,
     is_active: true,

@@ -158,15 +158,15 @@ Template for updates:
 - Observed result: `TBD`
 
 ### 13. Change seeded product types without changing app code
-- [ ] Update seeded/mock product records so at least one known product changes from `jaffle` to `side` or `beverage`.
+- [x] Update seeded/mock product records so at least one known product changes from `jaffle` to `side` or `beverage`.
 - App files:
   - [src/mock-data/jaffle-shop.ts](/Users/chustz/firestore-test-app/src/mock-data/jaffle-shop.ts)
   - [src/services/seed-service.ts](/Users/chustz/firestore-test-app/src/services/seed-service.ts)
 - Why this should affect dbt:
   - This is a data-only change that should still alter downstream food/drink classification and test behavior.
-- PR: `TBD`
-- Status: `pending`
-- Observed result: `TBD`
+- PR: `#16`
+- Status: `verified`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a medium-confidence, medium-severity business-logic change affecting products, order_items, orders, and customers via seeded product-type reclassification.`
 
 ### 14. Change seeded multi-quantity behavior
 - [ ] Update seed data so orders include larger quantities or multiple repeated SKUs per order.
