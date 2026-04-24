@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#24`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -270,9 +270,9 @@ The app writes new data, or writes more data, but only to collections/fields tha
   - [src/utils/collection-refs.ts](/Users/chustz/firestore-test-app/src/utils/collection-refs.ts)
 - Why this should NOT affect dbt:
   - `app_state` is an internal operational collection and is not referenced by any `dbt_snowflake` staging or mart model.
-- PR: `TBD`
+- PR: `#24`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev found no alarming downstream issues and correctly treated the internal app_state-only change as a true negative.`
 
 #### 22. Add a new `order_audit_log` collection for order mutations
 - [ ] When an order is created or has its status updated, write an append-only entry to a new `order_audit_log` collection (`{order_id, previous_status, new_status, actor, changed_at}`). Do not change `raw_orders` or `raw_items`.
