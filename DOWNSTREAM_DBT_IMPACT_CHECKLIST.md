@@ -222,7 +222,7 @@ The raw Firestore document shape, field names, field types, and written values a
 - Why this should NOT affect dbt:
   - Comment-only changes cannot alter the shape or semantics of any upstream data.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 #### 18. Move Zod schemas into a dedicated `src/schemas/` folder
