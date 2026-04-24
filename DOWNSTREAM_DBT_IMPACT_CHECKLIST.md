@@ -86,7 +86,7 @@ Template for updates:
 - Why this should affect dbt:
   - Downstream dbt derives `is_food_item` and `is_drink_item` using the existing raw `type` values.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 7. Rename item SKU field
