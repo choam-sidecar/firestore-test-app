@@ -63,7 +63,7 @@ Template for updates:
 - Why this should affect dbt:
   - Downstream marts aggregate `tax_paid` and `order_total`, so a meaning change should affect business metrics even if the schema is unchanged.
 - PR: `TBD`
-- Status: `in_progress`
+- Status: `verified`
 - Observed result: `awaiting contract-agent evaluation`
 
 ### 5. Rename product price field
