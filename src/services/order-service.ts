@@ -14,6 +14,10 @@ interface OrderWithItems {
   items: RawItem[];
 }
 
+/**
+ * Validates an inbound order request, prices each line from the product catalog,
+ * and persists the raw order plus raw item documents together.
+ */
 export async function createOrder(data: unknown): Promise<OrderWithItems> {
   const validated = createOrderSchema.parse(data);
   const customer = await getCustomer(validated.customer_id);
@@ -93,6 +97,9 @@ export async function getOrder(orderId: string): Promise<OrderWithItems | null> 
   };
 }
 
+/**
+ * Returns the newest orders first to match the operator view in the mock app.
+ */
 export async function listOrders(): Promise<RawOrder[]> {
   const snapshot = await collections.rawOrders.orderBy("ordered_at", "desc").get();
   return snapshot.docs.map((doc) => doc.data() as RawOrder);
