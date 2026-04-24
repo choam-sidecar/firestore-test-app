@@ -41,7 +41,7 @@ Template for updates:
   - [firestore/firestore.rules](/Users/chustz/firestore-test-app/firestore/firestore.rules)
 - Why this should affect dbt:
   - `dbt_snowflake` staging expects `store_id` in `raw_orders`.
-- PR: `#7`
+- PR: `TBD`
 - Status: `pending`
 - Observed result: `TBD`
 
@@ -62,9 +62,9 @@ Template for updates:
   - [src/models/store.ts](/Users/chustz/firestore-test-app/src/models/store.ts)
 - Why this should affect dbt:
   - Downstream marts aggregate `tax_paid` and `order_total`, so a meaning change should affect business metrics even if the schema is unchanged.
-- PR: `TBD`
+- PR: `#7`
 - Status: `verified`
-- Observed result: `awaiting contract-agent evaluation`
+- Observed result: `2026-04-24: sidecar-data-contract-agent-dev flagged this as a high-confidence, high-severity business-logic change affecting orders, customers, tax and order_total measures, and downstream saved queries.`
 
 ### 5. Rename product price field
 - [ ] Change `raw_products.price` to `raw_products.unit_price`.
