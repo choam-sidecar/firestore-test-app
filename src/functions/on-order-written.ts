@@ -14,7 +14,7 @@ export const onOrderWritten = functions.firestore
 
     const order = orderSnapshot.data() as RawOrder;
     const ordersSnapshot = await collections.rawOrders
-      .where("customer", "==", order.customer)
+      .where("customer_id", "==", order.customer_id)
       .get();
     const orders = ordersSnapshot.docs.map((doc) => doc.data() as RawOrder);
 
@@ -23,7 +23,7 @@ export const onOrderWritten = functions.firestore
       .sort((left, right) => left.ordered_at.toMillis() - right.ordered_at.toMillis());
 
     const stats: CustomerStats = {
-      customer_id: order.customer,
+      customer_id: order.customer_id,
       count_lifetime_orders: sortedOrders.length,
       first_ordered_at: sortedOrders[0]?.ordered_at ?? null,
       last_ordered_at: sortedOrders.at(-1)?.ordered_at ?? null,
@@ -34,5 +34,5 @@ export const onOrderWritten = functions.firestore
       updated_at: Timestamp.now(),
     };
 
-    await collections.customerStats.doc(order.customer).set(stats);
+    await collections.customerStats.doc(order.customer_id).set(stats);
   });
