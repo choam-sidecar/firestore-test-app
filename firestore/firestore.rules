@@ -42,7 +42,7 @@ service cloud.firestore {
       allow create, update: if isWriter()
         && request.resource.data.keys().hasAll([
           'id',
-          'customer',
+          'customer_id',
           'store_id',
           'subtotal',
           'tax_paid',

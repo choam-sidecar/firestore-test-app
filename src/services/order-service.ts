@@ -16,9 +16,9 @@ interface OrderWithItems {
 
 export async function createOrder(data: unknown): Promise<OrderWithItems> {
   const validated = createOrderSchema.parse(data);
-  const customer = await getCustomer(validated.customer);
+  const customer = await getCustomer(validated.customer_id);
   if (!customer || !customer.is_active) {
-    throw new Error(`Active customer ${validated.customer} not found`);
+    throw new Error(`Active customer ${validated.customer_id} not found`);
   }
 
   const store = await getStore(validated.store_id);
@@ -58,7 +58,7 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
 
   const order: RawOrder = {
     id: orderId,
-    customer: validated.customer,
+    customer_id: validated.customer_id,
     store_id: validated.store_id,
     subtotal,
     tax_paid,
