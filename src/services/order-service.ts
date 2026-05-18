@@ -39,18 +39,20 @@ export async function createOrder(data: unknown): Promise<OrderWithItems> {
       throw new Error(`Active product ${input.sku} not found`);
     }
 
-    const line_total = product.price * input.quantity;
-    subtotal += line_total;
+    for (let unitIndex = 0; unitIndex < input.quantity; unitIndex += 1) {
+      const line_total = product.price;
+      subtotal += line_total;
 
-    items.push({
-      id: `${orderId}_${index + 1}`,
-      order_id: orderId,
-      sku: input.sku,
-      quantity: input.quantity,
-      unit_price: product.price,
-      line_total,
-      updated_at: now,
-    });
+      items.push({
+        id: `${orderId}_${index + 1}_${unitIndex + 1}`,
+        order_id: orderId,
+        sku: input.sku,
+        quantity: 1,
+        unit_price: product.price,
+        line_total,
+        updated_at: now,
+      });
+    }
   }
 
   const tax_paid = Math.round(subtotal * store.tax_rate);
